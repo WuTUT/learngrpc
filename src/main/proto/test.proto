@@ -3,11 +3,11 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.github.wutut.grpc";
 option java_outer_classname = "AudioInfoProto";
-option objc_class_prefix = "HLW";
 
 
+package AudioInfoGrpc;
 service AudioInfo {
-  rpc TransInfo (AudioInfoRequest) returns (AudioInfoReply) {}
+  rpc transinfo (AudioInfoRequest) returns (AudioInfoReply) {}
 }
 
 message AudioInfoRequest {

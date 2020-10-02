@@ -42,7 +42,7 @@ class AudioServiceImpl extends AudioInfoImplBase {
     }
 
     @Override
-    public void transInfo(AudioInfoRequest request, StreamObserver<AudioInfoReply> responseObserver) {
+    public void transinfo(AudioInfoRequest request, StreamObserver<AudioInfoReply> responseObserver) {
         AudioInfoReply.Builder audioInfoBuilder = AudioInfoReply.newBuilder();
         createInfo(audioInfoBuilder);
         AudioInfoReply reply = audioInfoBuilder.build();

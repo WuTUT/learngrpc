@@ -10,11 +10,11 @@ public class GrpcClient {
     public static void main(String[] args) {
         ManagedChannel channel = null;
         try {
-            channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext(true).build();
+            channel = ManagedChannelBuilder.forAddress("192.168.31.96", 50051).usePlaintext().build();
             AudioInfoGrpc.AudioInfoBlockingStub stub = AudioInfoGrpc.newBlockingStub(channel);
             for (int i = 0; i < 10; i++) {
                 AudioInfoReply audioInfoReply = stub
-                        .transInfo(AudioInfoRequest.newBuilder().setName("one is :").build());
+                        .transinfo(AudioInfoRequest.newBuilder().setName("one is :").build());
                 System.out.println(audioInfoReply.getTimestamp());
                 System.out.println(audioInfoReply.getDetected());
                 System.out.println("mic count" + audioInfoReply.getMicinfosCount());
@@ -22,7 +22,7 @@ public class GrpcClient {
                 for (AudioInfoReply.MicInfo x : micInfos) {
                     System.out.println("name Mic " + x.getMicname() + "probability is " + x.getProbability());
                 }
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(2);
             }
 
         } catch (Exception e) {
