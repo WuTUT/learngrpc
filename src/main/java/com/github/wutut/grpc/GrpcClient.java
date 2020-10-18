@@ -10,7 +10,9 @@ public class GrpcClient {
     public static void main(String[] args) {
         ManagedChannel channel = null;
         try {
-            channel = ManagedChannelBuilder.forAddress("192.168.31.96", 50051).usePlaintext().build();
+            // channel = ManagedChannelBuilder.forAddress("192.168.31.96",
+            // 50051).usePlaintext().build();
+            channel = ManagedChannelBuilder.forAddress("127.0.0.1", 50051).usePlaintext().build();
             AudioInfoGrpc.AudioInfoBlockingStub stub = AudioInfoGrpc.newBlockingStub(channel);
             for (int i = 0; i < 10; i++) {
                 AudioInfoReply audioInfoReply = stub
